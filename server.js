@@ -11,6 +11,12 @@ const io = new Server(server, {
   cors: { origin: "*" }
 });
 
+
+// ✅ tambahin ini biar kalau buka URL root nggak error
+app.get("/", (req, res) => {
+  res.json({ message: "Server running ✅" });
+});
+
 // serve static frontend
 app.use(express.static(path.join(__dirname, 'public')));
 
